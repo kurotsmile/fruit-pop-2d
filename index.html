@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Fruit Pop 2D is a colorful HTML5 canvas arcade game. Pop fruits, avoid bombs, chain combos, and enjoy smooth particle effects." />
+  <meta name="description" content="Fruit Pop 2D is a colorful HTML5 canvas arcade game with Fruit Ninja slice mode, Candy-style match-3 mode, high score saving, and beautiful particle effects." />
   <title>Fruit Pop 2D</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -16,15 +16,30 @@
       </div>
       <div class="stats">
         <span>Score <b id="score">0</b></span>
+        <span>Best <b id="best">0</b></span>
         <span>Combo <b id="combo">0</b>x</span>
         <span>Time <b id="time">60</b>s</span>
       </div>
     </section>
-    <canvas id="game" width="960" height="540" aria-label="Fruit Pop 2D game canvas"></canvas>
+    <div class="stage">
+      <canvas id="game" width="960" height="540" aria-label="Fruit Pop 2D game canvas"></canvas>
+      <div id="gameOver" class="overlay hidden">
+        <div class="card">
+          <p class="eyebrow">Game Over</p>
+          <h2 id="gameOverTitle">Great Run!</h2>
+          <p id="gameOverText">Your score: 0</p>
+          <button id="restartBtn">Play Again</button>
+        </div>
+      </div>
+    </div>
     <section class="panel">
+      <select id="modeSelect" aria-label="Game mode">
+        <option value="slice">Fruit Ninja Slice</option>
+        <option value="match">Candy Match-3</option>
+      </select>
       <button id="startBtn">Start Game</button>
       <button id="muteBtn">Sound On</button>
-      <p>Tap or click fruits before they fall. Avoid bombs. Chain fast pops to grow your combo.</p>
+      <p id="hint">Slice fruits by dragging across them. Avoid bombs and chain fast combos.</p>
     </section>
   </main>
   <script src="game.js"></script>
