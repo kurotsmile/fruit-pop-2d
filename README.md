@@ -74,23 +74,87 @@ Implemented bridge points:
 
 ## Controls
 
-### Menu
+Fruit Pop 2D uses a full in-game canvas interface. All buttons, menus, score displays, timers, and Game Over screens are drawn inside the game screen instead of using separate HTML controls. This makes the game feel closer to a real web arcade or mobile game.
 
-- Click or tap **Start Game** to play
-- Click or tap **Mode** to switch between Slice and Match-3
-- Click or tap **Sound** to toggle sound mode
+### Main Menu Controls
 
-### Slice Mode
+On the main menu, use the mouse on desktop or touch controls on mobile:
 
-- Drag your mouse or finger through fruits
-- Avoid bombs
-- Keep scoring to refill the no-score timer
+| Action | Desktop | Mobile / Tablet | Description |
+|---|---|---|---|
+| Start Game | Click **Start Game** | Tap **Start Game** | Starts a new round using the selected game mode. |
+| Change Mode | Click **Mode** | Tap **Mode** | Switches between **Fruit Ninja Slice** and **Match-3** mode. |
+| Toggle Sound | Click **Sound** | Tap **Sound** | Turns game sound on or off. |
+| View Fruit Scores | Look at the score table | Look at the score table | Shows each fruit type and how many points it gives. |
 
-### Match-3 Mode
+### Fruit Ninja Slice Mode Controls
 
-- Tap fruits on the board
-- Clear matching fruit types
-- Complete challenge targets before time runs out
+In Slice Mode, fruits fly upward across the screen. The player must slice them before they disappear.
+
+| Action | Desktop | Mobile / Tablet | Result |
+|---|---|---|---|
+| Slice Fruit | Hold and drag the mouse through a fruit | Swipe through a fruit | Cuts the fruit and adds score. |
+| Build Combo | Slice fruits quickly without missing | Swipe through multiple fruits | Increases combo and bonus points. |
+| Avoid Bombs | Do not drag through bombs | Do not swipe through bombs | Prevents score loss and combo reset. |
+| Trigger Challenge | Slice the special challenge fruit | Swipe the special challenge fruit | Starts a timed fruit target mission. |
+| Keep Timer Alive | Continue scoring | Continue scoring | Refills the no-score countdown bar. |
+
+Tips for Slice Mode:
+
+- Try to slice several fruits in one continuous swipe.
+- Avoid bombs even if they appear close to valuable fruits.
+- Watch the no-score countdown bar. If you stop scoring for too long, the game ends.
+- Special challenge fruits are risky but can create higher scoring opportunities.
+
+### Match-3 Mode Controls
+
+In Match-3 Mode, fruits appear on a board. The player taps or clicks fruit icons to clear matching fruit types and score points.
+
+| Action | Desktop | Mobile / Tablet | Result |
+|---|---|---|---|
+| Select Fruit | Click a fruit tile | Tap a fruit tile | Clears matching fruit types from the board. |
+| Score Points | Clear fruits | Clear fruits | Adds points based on the fruit type. |
+| Build Combo | Clear fruits repeatedly | Tap quickly and strategically | Increases combo count. |
+| Complete Challenge | Clear enough target fruits before time ends | Tap matching fruits quickly | Prevents instant Game Over. |
+| Refill Timer | Keep clearing fruits | Keep clearing fruits | Restores the no-score countdown bar. |
+
+Tips for Match-3 Mode:
+
+- Higher-value fruits such as Watermelon, Strawberry, Cherry, and Grapes give more points.
+- When a challenge is active, focus on clearing fruits quickly instead of waiting.
+- The game rewards fast decisions because the no-score timer keeps dropping.
+- Clearing larger groups helps challenge progress faster.
+
+### Challenge Event Controls
+
+Challenge events can appear during gameplay or after slicing a special challenge fruit. When active, the HUD shows a target such as:
+
+```text
+Challenge: 3/8 fruits in 6s
+```
+
+This means you have collected 3 out of 8 required fruits and only 6 seconds remain.
+
+| Goal | What to Do |
+|---|---|
+| Increase challenge count | Slice fruits in Slice Mode or clear fruits in Match-3 Mode. |
+| Beat the challenge timer | Reach the required fruit count before the countdown reaches zero. |
+| Avoid failure | Keep scoring aggressively while the challenge is active. |
+| Failure condition | If the target is not completed in time, the game immediately goes to Game Over. |
+
+### Game Over Controls
+
+When the game ends, a Game Over panel appears inside the canvas.
+
+| Action | Desktop | Mobile / Tablet | Description |
+|---|---|---|---|
+| Restart | Click **Play Again** | Tap **Play Again** | Starts a new round. |
+| View Score | Read the Game Over panel | Read the Game Over panel | Shows current score and best score. |
+| Save Best Score | Automatic | Automatic | Best score is saved locally using `localStorage`. |
+
+### Recommended Play Style
+
+For the best experience, play in fullscreen or a large browser window. On mobile, use quick swipes in Slice Mode and fast taps in Match-3 Mode. The game is designed around speed, pressure, and constant scoring, so the safest strategy is to keep moving, keep slicing, and never let the no-score timer run out.
 
 ## Project Structure
 
